@@ -1,15 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BiodataController;
-use App\Http\Controllers\PlaylistController;
-use App\Http\Controllers\GaleriController;
 
-// Halaman utama -> Biodata
-Route::get('/', [BiodataController::class, 'index'])->name('biodata');
+// Halaman Biodata (Home)
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
-// Halaman playlist
-Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist');
+// Halaman Playlist
+Route::get('/playlist', function () {
+    return view('playlist');
+})->name('playlist');
 
-// Halaman galeri
-Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
+// Halaman Galeri
+Route::get('/galeri', function () {
+    return view('galeri');
+})->name('galeri');

@@ -1,37 +1,230 @@
+/* Struktur Halaman Agar Footer Selalu di Bawah */
+html, body {
+    height: 100%;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Bagian utama halaman biar dorong footer ke bawah */
+main {
+    flex: 1;
+}
+
+/* Font & Warna Dasar */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #f0f8ff, #e8f6ff);
     color: #333;
+    transition: background 0.5s ease;
+}
+
+/* Navbar */
+nav {
+    background: linear-gradient(90deg, #333, #555);
+    padding: 15px 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-nav {
-    background: #0077cc;
-    color: white;
-    padding: 10px;
-    text-align: center;
+nav ul li {
+    margin: 0 20px;
 }
 
-nav a {
+nav ul li a {
     color: white;
-    margin: 0 15px;
     text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.container {
-    padding: 20px;
+nav ul li a:hover,
+nav ul li a.active {
+    color: #00bcd4;
+    transform: scale(1.1);
 }
 
-.playlist-container, .galeri-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+/*Animasi Halaman Muncul */
+main {
+    animation: fadeIn 1s ease;
 }
 
-.playlist-item, .galeri-item {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*Biodata */
+.biodata-jarak {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.biodata-jarak h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #006e92;
+}
+
+.foto-profil {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 20px 0;
+    border: 4px solid #00bcd4;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-profil:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.biodata-box {
     background: white;
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 420px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.biodata-box:hover {
+    transform: translateY(-5px);
+}
+
+.map-box {
+    margin-top: 40px;
+}
+
+/*Playlist */
+.playlist {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.playlist h1 {
+    color: #006e92;
+    margin-bottom: 30px;
+}
+
+.playlist-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.playlist-item {
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.playlist-item img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.playlist-item img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+}
+
+.playlist-item p {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/*Galeri */
+.galeri-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.galeri-container h1 {
+    color: #006e92;
+    margin-bottom: 10px;
+}
+
+.foto-galeri {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.foto-item {
+    width: 250px;
+    background: white;
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.foto-item img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+}
+
+.foto-item:hover img {
+    transform: scale(1.05);
+}
+
+/*Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 15px 0;
+    margin-top: 50px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+footer small {
+    opacity: 0.8;
+}
+
+/*Responsif */
+@media (max-width: 768px) {
+    .playlist-container, .foto-galeri {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .playlist-item, .foto-item {
+        width: 80%;
+    }
+
+    .biodata-box {
+        width: 90%;
+    }
 }
