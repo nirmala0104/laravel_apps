@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: #0077cc;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px;
+}
+
+.playlist-container, .galeri-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.playlist-item, .galeri-item {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background: white;
+}
